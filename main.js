@@ -102,10 +102,11 @@ function init() {
   isGameOver = false;
   cells = document.querySelectorAll(".tetris div");
   score = 0;
-  countScore(null);
+    countScore(null);
   if (isGameReady) {
     startLoop();
     generateTetromino();
+    pauseButton.innerHTML = pauseText;
     
   }
 }
@@ -171,7 +172,7 @@ function togglePauseGame() {
     pauseButton.innerHTML = playText;
   } else {
     startLoop();
-    pauseButton.innerHTML = pauseText;
+    
   }
   document.activeElement.blur();
 }
@@ -187,6 +188,7 @@ startButton.addEventListener("click", function () {
 startNewGameButton.addEventListener("click", function () {
   isGameReady = true;
   init();
+  pauseButton.innerHTML = pauseText;
   document.activeElement.blur();
 });
 
